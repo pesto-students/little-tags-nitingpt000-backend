@@ -61,7 +61,7 @@ router.get("/", async (req, res) => {
 
   const startDate = startDuration ? new Date(startDuration * 1000) : startToday;
   const endDate = endDuration ? new Date(endDuration * 1000) : endToday;
-  const mostProduct = await ProductOrdered.aggregate([
+  const mostProductOrdered = await ProductOrdered.aggregate([
     {
       $match: {
         date: {
@@ -91,7 +91,7 @@ router.get("/", async (req, res) => {
     },
   ]);
 
-  const totalAmount = await Order.aggregate([
+  const totalOrderAmount = await Order.aggregate([
     {
       $match: {
         modified_at: {
@@ -110,7 +110,7 @@ router.get("/", async (req, res) => {
     },
   ]);
 
-  const totalUser = await Order.aggregate([
+  const totalUserOrdered = await Order.aggregate([
     {
       $match: {
         modified_at: {
@@ -141,7 +141,7 @@ router.get("/", async (req, res) => {
       },
     },
   ]);
-  const result = { mostProduct, totalAmount, totalUser, myOrder };
+  const result = {  mostProductOrdered,  totalOrderAmount, totalUserOrdered, myOrder };
 
   res.send(result);
 });
