@@ -5,7 +5,10 @@ const path = require("path");
 const session = require('cookie-session')
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+<<<<<<< Updated upstream
 const mongoose = require("mongoose");
+=======
+>>>>>>> Stashed changes
 const helmet = require('helmet')
 
 const indexRouter = require("./routes/index");
@@ -26,7 +29,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+<<<<<<< Updated upstream
 app.use("/v1/api/user", authRouter);
+=======
+>>>>>>> Stashed changes
 var expiryDate = new Date(Date.now() + 30*24*60 * 60 * 1000) // 30 days
 app.use(session({
   name: 'vuyitsession',
