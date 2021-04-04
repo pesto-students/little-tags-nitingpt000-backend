@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
+router.post("/", (req, res, next) => {
+  console.log("users post", req.body);
+  req.session.auth = "eroiurerdfdf";
   res.send("respond with a resource");
 });
 
