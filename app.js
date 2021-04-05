@@ -22,7 +22,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/v1/api/user", authRouter);
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/v1/api/products", productsRouter);
 //connect mongodb
 mongoose.connect(

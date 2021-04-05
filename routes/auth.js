@@ -10,7 +10,7 @@ router.post("/register", async (req, res) => {
   if (error) return res.status(404).send(error.details[0].message);
 
   // checking if the user already exist
-  const emailExist = await User.findOne({ email: req.body.email });
+  const emailExist = await User.findOne({ userEmail: req.body.userEmail });
   if (emailExist) return res.status(400).send("email already exists");
   // hash the password
   const salt = await bcrypt.genSalt(10);
@@ -18,8 +18,8 @@ router.post("/register", async (req, res) => {
 
   //create a new user
   const user = new User({
-    name: req.body.name,
-    email: req.body.email,
+    userName: req.body.userName,
+    userEmail: req.body.userEmail,
     password: hashedPassword,
   });
   try {
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
   const { error } = loginValidation(req.body);
   if (error) return res.status(404).send(error.details[0].message);
   // checking for user exist in database
-  const user = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.userEmail });
   if (!user) return res.status(400).send("email and password are incorrect");
   // checking if the user password is valid
   const validPass = await bcrypt.compare(req.body.password, user.password);
