@@ -6,8 +6,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
+const adminRouter = require("./routes/admin");
 const productsRouter = require("./routes/products");
 const app = express();
 require("dotenv").config();
@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/v1/api/user", authRouter);
 app.use("/", indexRouter);
+app.use("/admin", adminRouter);
 app.use("/v1/api/products", productsRouter);
 //connect mongodb
 mongoose.connect(
