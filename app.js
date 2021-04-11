@@ -2,14 +2,11 @@ const createError = require("http-errors");
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
 const path = require("path");
-const session = require('cookie-session')
+const session = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-<<<<<<< Updated upstream
 const mongoose = require("mongoose");
-=======
->>>>>>> Stashed changes
-const helmet = require('helmet')
+const helmet = require("helmet");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -21,7 +18,6 @@ require("dotenv").config();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(expressLayout);
-app.set("view engine", "jade");
 
 app.use(helmet());
 app.use(logger("dev"));
@@ -29,21 +25,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-<<<<<<< Updated upstream
 app.use("/v1/api/user", authRouter);
-=======
->>>>>>> Stashed changes
-var expiryDate = new Date(Date.now() + 30*24*60 * 60 * 1000) // 30 days
-app.use(session({
-  name: 'vuyitsession',
-  keys: ['keydfsdfsfdaw321erthd1', 'kefgw145rewtrgfdsgfy2', 'pozzzdeQQFWreddfdf'],
-  cookie: {
-    secure: true,
-    httpOnly: true,
-    path: '/',
-    expires: expiryDate
-  }
-}));
+var expiryDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
+app.use(
+  session({
+    name: "vuyitsession",
+    keys: [
+      "keydfsdfsfdaw321erthd1",
+      "kefgw145rewtrgfdsgfy2",
+      "pozzzdeQQFWreddfdf",
+    ],
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      path: "/",
+      expires: expiryDate,
+    },
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
