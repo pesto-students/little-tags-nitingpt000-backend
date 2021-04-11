@@ -61,7 +61,7 @@ app.use("/v1/api/address", addressRouter);
 app.use("/v1/api/productAttributes", productAttributeRouter);
 //connect mongodb
 mongoose.connect(
-  process.env.DB_CONNECTION_TEST,
+  process.env.DB_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => console.log(err)
 );
