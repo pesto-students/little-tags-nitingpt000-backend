@@ -1,22 +1,81 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+ <!-- Compiled and minified JavaScript -->
+ <!--Let browser know website is optimized for mobile-->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Custom Materialize Theme</title>
+ <style>
+     .blue.darken-2{
+         background-color: rgb(37, 37, 37) !important;
+     }
+     .container{
+         height: 80vh;
+     }
+ </style>
 </head>
-<body>
-    <header>
-        <h1>this is header</h1>
-    </header>
-   <main>
-       <section>
-        <%- body %>
-       </section>
-   </main>
-    <footer>
-        <h2>this is footer</h2>
-    </footer>
+
+<body class="grey lighten-4">
+    <nav class="blue darken-2">
+        <div class="container">
+      <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo">Vuyit</a>
+        </div>
+    </div>
+</nav>
+
+<%- body %>
+
+
+  <!-- Footer -->
+  <footer class="section blue darken-2 white-text center">
+    <p>Vuyit ecommerce Copyright &copy; 2021</p>
+  </footer>
+
+
+  
+  <!-- Preloader -->
+  <div class="loader preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+      <div class="gap-patch">
+          <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+    </div>
+</div>
+  </div>
+  
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <script>
+    // Hide Sections
+    $('.section').hide();
+
+    setTimeout(function () {
+      $(document).ready(function () {
+        // Show sections
+        $('.section').fadeIn();
+
+        // Hide preloader
+        $('.loader').fadeOut();
+        
+    });
+    }, 1000);
+    </script>
 </body>
+
 </html>

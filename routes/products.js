@@ -1,8 +1,13 @@
 const router = require("express").Router();
-const verify = require("./verifyToken");
+const verify = require("../middleware/verifyToken");
+const {
+  getProducts,
+  getProductById,
+  deleteProduct,
+  createProduct,
+} = require("../controllers/productController");
 
-router.get("/", verify, (req, res) => {
-  res.send("products");
-});
+router.route("/").get(getProducts).post(verify, createProduct);
+router.route("/:id").get(getProductById).delete(verify, deleteProduct);
 
 module.exports = router;
