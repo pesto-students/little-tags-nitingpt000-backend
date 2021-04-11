@@ -38,28 +38,36 @@ With all the prereqs installed:
 
 ### Products:
 
-|GET| /api/v1/categories/products/     /api/v1/categories/products/:id|
-
+| | |
+|----------|:-------------:|
+|GET| /api/v1/categories/products/   <br>   /api/v1/categories/products/:id|
 |POST| /api/v1/categories/products|
 |PUT| /api/v1/categories/products/:id|
 |DELETE| /api/v1/categories/products/:id |
 
 ### Categories:
 
-|GET| /api/v1/categories/   /api/v1/categories/:id|
+| | |
+|----------|:-------------:|
+|GET| /api/v1/categories/   <br> /api/v1/categories/:id|
 |POST|   /api/v1/categories |
 |PUT|    /api/v1/categories/:id  |
 |DELETE|    /api/v1/categories/:id  |
 
+
 ### Users:
-|GET |    /api/v1/users/      /api/v1/users/:id |
+| | |
+|----------|:-------------:|
+|GET |    /api/v1/users/    <br>   /api/v1/users/:id |
 |POST|    /api/v1/users |
 |PUT|    /api/v1/users/:id |
 |DELETE|    /api/v1/users/:id  |
 
 ### Orders
 
+| | |
+|----------|:-------------:|
 |Post|  /v1/api/orders/ |
-|Post| (Only address) /v1/api/orders/orderId |
+|Post| (Only address)  <br> /v1/api/orders/orderId |
 |Delete|  /v1/api/orders/orderId |
 |Get|  /v1/api/orders |
