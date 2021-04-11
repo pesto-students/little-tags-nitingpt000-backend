@@ -9,6 +9,10 @@ const addressSchema = new mongoose.Schema({
   city: String,
   country: String,
   zipCode: String,
+  softDelete: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -19,4 +23,6 @@ const addressSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Address", addressSchema);
+const Address = mongoose.model("Address", addressSchema);
+
+module.exports = Address;

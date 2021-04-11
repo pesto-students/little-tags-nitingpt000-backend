@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const brandSchema = new mongoose.Schema({
   brandImage: String,
   brandTitle: String,
+  softDelete: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -13,4 +17,6 @@ const brandSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Brand", brandSchema);
+const Brand = mongoose.model("Brand", brandSchema);
+
+module.exports = Brand;

@@ -9,6 +9,12 @@ const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const adminRouter = require("./routes/admin");
 const productsRouter = require("./routes/products");
+const categoriesRouter = require("./routes/categories");
+const brandsRouter = require("./routes/brands");
+const ratingsRouter = require("./routes/ratings");
+const paymentsRouter = require("./routes/payments");
+const addressRouter = require("./routes/address");
+const productAttributeRouter = require("./routes/productAttributes");
 const app = express();
 require("dotenv").config();
 // view engine setup
@@ -24,9 +30,15 @@ app.use("/v1/api/user", authRouter);
 app.use("/", indexRouter);
 app.use("/admin", adminRouter);
 app.use("/v1/api/products", productsRouter);
+app.use("/v1/api/categories", categoriesRouter);
+app.use("/v1/api/brands", brandsRouter);
+app.use("/v1/api/ratings", ratingsRouter);
+app.use("/v1/api/payments", paymentsRouter);
+app.use("/v1/api/address", addressRouter);
+app.use("/v1/api/productAttributes", productAttributeRouter);
 //connect mongodb
 mongoose.connect(
-  process.env.DB_CONNECTION,
+  process.env.DB_CONNECTION_TEST,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => console.log(err)
 );

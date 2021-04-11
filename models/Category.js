@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
 
-const categorySchema = new mongoose.Schema({
+const categoriesSchema = new mongoose.Schema({
   image: String,
   title: String,
+  softDelete: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -13,4 +17,6 @@ const categorySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Category", categorySchema);
+const Category = mongoose.model("Category", categoriesSchema);
+
+module.exports = Category;

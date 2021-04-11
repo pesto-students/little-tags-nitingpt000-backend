@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const productAttributeSchema = new mongoose.Schema({
-  attributeSize: {
-    type: String,
-  },
-  attributeVariant: {
-    type: String,
+  attributeSize: String,
+  attributeVariant: String,
+  softDelete: {
+    type: Boolean,
+    default: false,
   },
   createdAt: {
     type: Date,
@@ -17,4 +17,9 @@ const productAttributeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("ProductAttribute", productAttributeSchema);
+const ProductAttribute = mongoose.model(
+  "ProductAttribute",
+  productAttributeSchema
+);
+
+module.exports = ProductAttribute;

@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 
-const paymentSchema = new mongoose.Schema({
+const paymentsSchema = new mongoose.Schema({
   name: String,
-  cardNumber: [String],
+  cardNumber: String,
   expiry: String,
   cardHash: String,
   currency: String,
+  softDelete: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -16,4 +20,6 @@ const paymentSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Payment", paymentSchema);
+const Payment = mongoose.model("Payment", paymentsSchema);
+
+module.exports = Payment;
