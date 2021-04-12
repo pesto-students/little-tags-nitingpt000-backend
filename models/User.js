@@ -30,19 +30,19 @@ const userSchema = new mongoose.Schema({
     max: 255,
   },
   address: {
-    type: [String],
+    type: [mongoose.Schema.Types.ObjectId],
     ref: "Address",
   },
   wishlist: {
-    type: [String],
+    type: [mongoose.Schema.Types.ObjectId],
     ref: "Product",
   },
   orders: {
-    type: [String],
+    type: [mongoose.Schema.Types.ObjectId],
     ref: "Order",
   },
   paymentMethod: {
-    type: [String],
+    type: [mongoose.Schema.Types.ObjectId],
     ref: "Payment",
   },
   locale: String,

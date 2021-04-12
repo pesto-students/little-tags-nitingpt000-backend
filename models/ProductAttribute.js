@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const productAttributeSchema = new mongoose.Schema({
-  attributeSize: String,
-  attributeVariant: String,
+  attributeSize: {
+    type: String,
+    required: true,
+  },
+  attributeVariant: {
+    type: String,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,

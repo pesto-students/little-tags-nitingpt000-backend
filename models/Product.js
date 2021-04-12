@@ -7,7 +7,10 @@ const productsSchema = new mongoose.Schema({
   price: Number,
   retailPrice: Number,
   description: String,
-  categories: [String],
+  categories: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Category",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -16,8 +19,14 @@ const productsSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  brand: String,
-  productAttributes: [String],
+  brand: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Brand",
+  },
+  productAttributes: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Category",
+  },
   softDelete: {
     type: Boolean,
     default: false,

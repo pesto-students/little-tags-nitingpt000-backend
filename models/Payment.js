@@ -1,11 +1,26 @@
 const mongoose = require("mongoose");
 
 const paymentsSchema = new mongoose.Schema({
-  name: String,
-  cardNumber: String,
-  expiry: String,
-  cardHash: String,
-  currency: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  cardNumber: {
+    type: String,
+    required: true,
+  },
+  expiry: {
+    type: String,
+    required: true,
+  },
+  cardHash: {
+    type: String,
+    required: true,
+  },
+  currency: {
+    type: String,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,

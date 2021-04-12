@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
 
 const ratingSchema = new mongoose.Schema({
-  user: String,
-  rating: Number,
-  product: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    required: true,
+  },
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,

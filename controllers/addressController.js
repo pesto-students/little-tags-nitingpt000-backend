@@ -1,6 +1,9 @@
 const Address = require("../models/Address");
 const mongoose = require("mongoose");
 
+// @desc    Create a Address
+// @route   POST /v1/api/address
+// @access  Private
 async function createAddress(req, res) {
   const address = new Address({
     firstName: req.body.firstName,
@@ -16,11 +19,17 @@ async function createAddress(req, res) {
   res.status(201).send(result);
 }
 
+// @desc    get all Address
+// @route   GET /v1/api/address
+// @access  Public
 async function getAllAddress(req, res) {
   const address = await Address.find({});
   res.send(address);
 }
 
+// @desc    update a address by id
+// @route   PUT /v1/api/address/:id
+// @access  Private
 async function updateAddress(req, res) {
   const address = await Address.findByIdAndUpdate(req.params.id, {
     $set: {
@@ -38,6 +47,9 @@ async function updateAddress(req, res) {
   res.status(200).send(address);
 }
 
+// @desc    Delete a address by id
+// @route   DELETE /v1/api/address/:id
+// @access  Private
 async function deleteAddress(req, res) {
   const address = await Address.findByIdAndUpdate(req.params.id, {
     $set: {

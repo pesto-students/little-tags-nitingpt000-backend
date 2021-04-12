@@ -18,6 +18,9 @@ const getProducts = async (req, res) => {
 
   const count = await Product.countDocuments({ ...keyword });
   const products = await Product.find({ ...keyword })
+    .populate("categories")
+    .populate("brand")
+    .populate("productAttributes")
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 
@@ -58,12 +61,15 @@ const deleteProduct = async (req, res) => {
 // @access  Private/Admin
 const createProduct = async (req, res) => {
   const product = new Product({
-    name: "Sample name",
-    productImages: ["/images/sample1.jpg", "/images/sample2.jpg"],
-    currency: "doller",
-    price: 0,
-    retailPrice: 0,
-    description: "lorem ipsum lorem ",
+    name: req.body.name,
+    productImages: req.body.productImages,
+    currency: req.body.currency,
+    price: req.body.price,
+    retailPrice: req.body.retailPrice,
+    description: req.body.description,
+    categories: req.body.categories,
+    brand: req.body.brand,
+    productAttributes: req.body.productAttributes,
     ratingAvg: 5,
     ratingCount: 5,
   });

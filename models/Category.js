@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const categoriesSchema = new mongoose.Schema({
-  image: String,
-  title: String,
+  image: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,

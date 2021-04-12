@@ -1,6 +1,9 @@
 const Payment = require("../models/Payment");
 const mongoose = require("mongoose");
 
+// @desc    Create a Payment
+// @route   POST /v1/api/payments
+// @access  Private
 async function createPayment(req, res) {
   const payment = new Payment({
     name: req.body.name,
@@ -13,6 +16,9 @@ async function createPayment(req, res) {
   res.status(201).send(result);
 }
 
+// @desc    get all Payments
+// @route   GET /v1/api/payments
+// @access  Public
 async function getAllPayments(req, res) {
   const payments = await Payment.find({});
   res.send(payments);
@@ -32,6 +38,9 @@ async function updatePayment(req, res) {
   res.status(200).send(payment);
 }
 
+// @desc    update a Payment by id
+// @route   PUT /v1/api/payments/:id
+// @access  Private
 async function deletePayment(req, res) {
   const payment = await Payment.findByIdAndUpdate(req.params.id, {
     $set: {

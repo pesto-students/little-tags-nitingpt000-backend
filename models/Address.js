@@ -1,14 +1,35 @@
 const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  mobile: String,
-  line1: String,
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  mobile: {
+    type: String,
+    required: true,
+  },
+  line1: {
+    type: String,
+    required: true,
+  },
   line2: String,
-  city: String,
-  country: String,
-  zipCode: String,
+  city: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  zipCode: {
+    type: String,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,

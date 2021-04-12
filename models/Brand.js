@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const brandSchema = new mongoose.Schema({
-  brandImage: String,
-  brandTitle: String,
+  brandImage: {
+    type: String,
+    required: true,
+  },
+  brandTitle: {
+    type: String,
+    required: true,
+  },
   softDelete: {
     type: Boolean,
     default: false,
